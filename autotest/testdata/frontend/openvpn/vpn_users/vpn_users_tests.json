@@ -1,0 +1,55 @@
+{
+  "test_case_1": {
+    "description": "Create one VPN user associated with a profile and the other isn't associated with any profile",
+    "case_data": {
+      "user_1": {
+        "id_vpc": "vpc-1cbdac79",
+        "associate_profile":"deselect",
+        "user_name": "autotester1",
+        "user_email": "autotester@12345.com"
+      },
+      "user_2":{
+        "id_vpc": "vpc-1cbdac79",
+        "associate_profile":"select",
+        "profile_name":"test102",
+        "user_name": "autotester2",
+        "user_email": "autotester@12345.com"
+      }
+    },
+    "expected_result": {
+      "toaster": "has been added to"
+    }
+  },
+  "test_case_2": {
+    "description": "Re-issue certificate for VPN user",
+    "case_data": {
+      "user_name":"autotester1",
+      "user_email":"autotester@12345.com"
+    },
+    "expected_result": {
+      "toaster": "and an email with certificate files will be sent to"
+    }
+  },
+  "test_case_3": {
+    "description": "Attempt to delete the gateway in the VPC when the user is still associated with the gateway",
+    "case_data": {
+      "gateway_name":"aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster": "Error: VPC has 2 VPN user account(s). Delete all VPN users under this VPC before deleting VPC"
+    }
+  },
+  "test_case_4": {
+    "description": "Delete the users created",
+    "case_data": {
+      "user_names":[
+        "autotester1",
+        "autotester2"
+      ],
+      "user_email":"autotester@12345.com"
+    },
+    "expected_result": {
+      "toaster": " has been removed from vpc "
+    }
+  }
+}

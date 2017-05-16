@@ -1,0 +1,90 @@
+{
+  "set_up": {
+    "description": "Set up a VPN User for the Profile",
+    "case_data": {
+        "id_vpc": "vpc-1cbdac79",
+        "user_name": "ur4profiletest",
+        "user_email": "ur4profiletest@12345.com"
+    },
+    "expected_result": {
+      "toaster": "has been added to"
+    }
+  },
+  "test_case_1": {
+    "description": "Create a Profile for VPN User",
+    "case_data": {
+      "profile_name": "auto-profile-1"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_2": {
+    "description": "Edit Profile -- Toggle to show the associated User list",
+    "case_data": {
+      "profile_name": "auto-profile-1"
+    },
+    "expected_result": {
+      "users": ""
+    }
+  },
+  "test_case_3": {
+    "description": "Edit Profile -- Create a policy for the profile",
+    "case_data": {
+      "target":"www.yahoo.com ",
+      "action":"deny"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_4": {
+    "description": "Edit Profile -- Delete the policy of the profile",
+    "case_data": {
+      "target":"www.yahoo.com"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_5": {
+    "description": "Attach User",
+    "case_data": {
+      "vpc_id":"vpc-1cbdac79",
+      "user_name": "ur4profiletest",
+      "profile_name": "auto-profile-1"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_6": {
+    "description": "Detach User",
+    "case_data": {
+      "vpc_id":"vpc-1cbdac79",
+      "user_name": "ur4profiletest",
+      "profile_name": "auto-profile-1"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_7": {
+    "description": "Delete Profile",
+    "case_data": {
+      "profile_name": "auto-profile-1"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "tear_down": {
+    "description": "Delete the VPN User for these tests",
+    "case_data": {
+        "user_name": "ur4profiletest"
+    },
+    "expected_result": {
+      "toaster": "has been removed from vpc"
+    }
+  }
+}

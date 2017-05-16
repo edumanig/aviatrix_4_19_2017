@@ -1,0 +1,76 @@
+{
+  "test_case_1": {
+    "description": "Create a GCloud gateway without VPN access",
+    "case_data": {
+      "cloud_type":"Gcloud",
+      "vpc_id":"gc-auto-wus-1",
+      "gateway_name": "auto-wus-no-vpn",
+      "zone":"us-west1-b",
+      "vpn_access":"deselect"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway",
+      "status":"Up"
+    }
+  },
+  "test_case_2": {
+    "description": "Create a GCloud gateway with VPN access enabled",
+    "case_data": {
+      "cloud_type":"Gcloud",
+      "vpc_id":"gc-eus1",
+      "gateway_name": "auto-eus-vpn",
+      "vpn_access":"select",
+      "vpn_cidr":"192.168.0.0/20",
+      "enable_elb":"no",
+      "enable_client_cert_sharing":"no",
+      "enable_ldap":"deselect"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway",
+      "status":"Up"
+    }
+  },
+  "test_case_3": {
+    "description": "GW HA - Gateway without VPN access: Check GW details; Select backup zone; Enable HA and Force to Switch Over",
+    "case_data": {
+      "gateway_name": "auto-wus-no-vpn",
+      "backup_zone":"us-west1-a"
+    },
+    "expected_result": {
+      "gateway_detail":"Gateway Name: ",
+      "toaster_enable": "HA enable: Successfully completed",
+      "toaster_switchover":"HA test: Successfully completed"
+    }
+  },
+  "test_case_4": {
+    "description": "GW HA - Gateway without VPN access: Try to resize it, disable HA and try to resize it again",
+    "case_data": {
+      "resize":"g1-small"
+    },
+    "expected_result": {
+      "toaster": "Error: HA enabled gateway",
+      "toaster_disable":"HA disable: Successfully completed",
+      "toaster_resize":"Successfully updated gateway size"
+    }
+  },
+  "test_case_5": {
+    "description": "Gateway with VPN access enabled: Not allowed to resize it",
+    "case_data": {
+      "gateway_name": "auto-eus-vpn",
+      "resize" : "g1-small"
+    },
+    "expected_result": {
+      "toaster_resize":"resizing is not supported"
+    }
+  },
+  "test_case_6": {
+    "description": "Delete gateways",
+    "case_data": {
+      "gateway_name1": "auto-wus-no-vpn",
+      "gateway_name2": "auto-eus-vpn"
+    },
+    "expected_result": {
+      "toaster": "deleted successfully"
+    }
+  }
+}

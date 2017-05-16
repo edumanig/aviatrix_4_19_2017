@@ -1,0 +1,90 @@
+{
+  "test_case_1":{
+    "description": "Basic unmapped site2cloud connection",
+    "case_data": {
+      "06.enable_ha": "deselect",
+      "02.vpc_id": "vpc-24938141",
+      "03.conn_type": "Unmapped",
+      "08.primary_gw": "aws-wus1-s2c-gw1",
+      "04.conn_name": "ProdConn",
+      "05.customer_gw_ip": "10.100.0.6",
+      "customer_nw_real": "10.101.0.0/16"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_2":{
+    "description":"Mapped site2cloud connection",
+    "case_data":{
+      "06.enable_ha":"deselect",
+      "02.vpc_id":"vpc-24938141",
+      "03.conn_type":"Mapped",
+      "08.primary_gw":"aws-wus1-s2c-gw1",
+      "04.conn_name":"ProdMapped",
+      "05.customer_gw_ip":"10.100.0.7",
+      "customer_nw_real":"10.102.0.0/16",
+      "customer_nw_virtual":"10.202.0.0/16",
+      "cloud_sub_real":"20.102.0.0/16",
+      "cloud_sub_virtual":"20.202.0.0/16"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_3":{
+    "description":"Null encryption",
+    "case_data":{
+      "06.enable_ha":"deselect",
+      "02.vpc_id":"vpc-24938141",
+      "03.conn_type":"Unmapped",
+      "08.primary_gw":"aws-wus1-s2c-gw1",
+      "04.conn_name":"ProdNull",
+      "05.customer_gw_ip":"10.100.0.8",
+      "customer_nw_real":"10.103.0.0/16",
+      "cloud_sub_real":"20.103.0.0/16",
+      "07.null_encr":"select"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_4":{
+    "description":"Site2cloud unmapped HA",
+    "case_data":{
+      "06.enable_ha":"select",
+      "02.vpc_id":"vpc-24938141",
+      "03.conn_type":"Unmapped",
+      "08.primary_gw":"aws-wus1-s2c-gw1",
+      "09.backup_gw":"aws-wus1-s2c-backup",
+      "04.conn_name":"ProdUnmappedHA",
+      "05.customer_gw_ip":"10.100.0.9",
+      "customer_nw_real":"10.104.0.0/16",
+      "cloud_sub_real":"20.104.0.0/16",
+      "07.null_encr":"deselect"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  },
+  "test_case_5":{
+    "description": "Site2cloud mapped HA",
+    "case_data":{
+      "06.enable_ha":"select",
+      "02.vpc_id":"vpc-24938141",
+      "03.conn_type":"Mapped",
+      "08.primary_gw":"aws-wus1-s2c-gw1",
+      "09.backup_gw":"aws-wus1-s2c-backup",
+      "04.conn_name":"ProdMappedHA",
+      "05.customer_gw_ip":"10.100.0.10",
+      "customer_nw_real":"10.105.0.0/16",
+      "customer_nw_virtual":"10.205.0.0/16",
+      "cloud_sub_real": "20.105.0.0/16",
+      "cloud_sub_virtual": "20.205.0.0/16",
+      "07.null_encr": "deselect"
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  }
+}

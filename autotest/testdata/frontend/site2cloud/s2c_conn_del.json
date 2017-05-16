@@ -1,0 +1,11 @@
+{
+  "test_case_1": {
+    "description": "Delete all the Site2cloud connections created prior",
+    "case_data": {
+      "s2c_conn_names" : ["ProdConn","ProdMapped","ProdNull","ProdUnmappedHA","ProdMappedHA"]
+    },
+    "expected_result": {
+      "toaster": "success"
+    }
+  }
+}

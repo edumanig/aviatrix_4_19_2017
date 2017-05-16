@@ -1,0 +1,82 @@
+{
+  "test_case_1": {
+    "description": "Encrypted Peering: Both gateways are the same",
+    "case_data": {
+      "gateway1": "gcloud-cus-s2c-gw1",
+      "gateway2": "gcloud-cus-s2c-gw1"
+    },
+    "expected_result": {
+      "toaster":"Error: A VPC cannot peer to itself"
+    }
+  },
+  "test_case_2": {
+    "description": "Encrypted Peering: Same network is not allowed",
+    "case_data": {
+      "gateway1": "gcloud-cus-s2c-gw1",
+      "gateway2": "gcloud-cus-s2c-backup"
+    },
+    "expected_result": {
+      "toaster":"Error: Encrypted peering is not supported on the same network."
+    }
+  },
+  "test_case_3": {
+    "description": "Encrypted Peering: Create an Encrypted Peering successfully",
+    "case_data": {
+      "gateway1": "gcloud-cus-s2c-gw1",
+      "gateway2": "gcloud-wus-no-vpn-1"
+    },
+    "expected_result": {
+      "toaster":"have been peered. Bidirectional ping success."
+    }
+  },
+  "test_case_4": {
+    "description": "Transitive Peering: No ENC peering between source and nexthop gateways",
+    "case_data": {
+      "source": "gcloud-cus-s2c-backup",
+      "nexthop": "gcloud-wus-no-vpn-1",
+      "destination_cidr":"10.100.0.0/20"
+    },
+    "expected_result": {
+      "toaster":"are NOT peered"
+    }
+  },
+  "test_case_5": {
+    "description": "Transitive Peering: Create the Transitive Peering successfully",
+    "case_data": {
+      "source": "gcloud-cus-s2c-gw1",
+      "nexthop": "gcloud-wus-no-vpn-1",
+      "destination_cidr":"10.100.0.0/20"
+    },
+    "expected_result": {
+      "toaster":"have been added"
+    }
+  },
+  "test_case_6": {
+    "description": "Transitive Peering: Delete the Transitive peering",
+    "case_data": {
+      "source": "gcloud-cus-s2c-gw1"
+    },
+    "expected_result": {
+      "toaster":"have been deleted"
+    }
+  },
+  "test_case_7": {
+    "description": "Over AWS Peering: Non-AWS Gateways are not allowed",
+    "case_data": {
+      "gateway1": "gcloud-wus-no-vpn-1",
+      "gateway2": "gcloud-peering-nexthop"
+    },
+    "expected_result": {
+      "toaster":"Error: Both gateway must be AWS gateway... Abort!!!"
+    }
+  },
+  "test_case_8": {
+    "description": "Delete the encrypted peering",
+    "case_data": {
+      "gateway1": "gcloud-cus-s2c-gw1"
+    },
+    "expected_result": {
+      "toaster":"peer have been deleted"
+    }
+  }
+}

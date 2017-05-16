@@ -1,0 +1,39 @@
+{
+  "test_case_1": {
+    "description": "Download Configuration: Cisco ASA #1, Cisco ASA #2, Aviatrix and Generic",
+    "case_data": {
+      "conn_name": "ProdConn",
+      "config1": {
+        "vendor": "Cisco",
+        "platform": "ASA 5500 Series",
+        "software": "ASA 8.2+"
+      },
+      "config":{
+        "vendor":"Cisco",
+        "platform":"ASA 5500 Series",
+        "software":"ASA 9.x"
+      },
+      "config3":{
+        "vendor":"Aviatrix",
+        "platform":"UCC",
+        "software":"1.0"
+      },
+      "config4":{
+        "vendor":"Generic",
+        "platform":"Generic",
+        "software":"Vendor independent"
+      }
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_2":{
+    "description": "Check the total download file count",
+    "case_data": {
+      "partial_file_name":"vpc-24938141*"
+    },
+    "expected_result": {
+      "file_count" : "4"
+    }
+  }
+}

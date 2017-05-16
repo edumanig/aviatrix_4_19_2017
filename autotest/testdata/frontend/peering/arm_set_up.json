@@ -1,0 +1,75 @@
+{
+  "set_up_vnet": {
+    "description": "Prepare VNet for test",
+    "case_data": {
+      "resource_group": "arm-wjp",
+      "region": "Japan West",
+      "cidr": "10.11.0.0/16",
+      "vnet_name": "arm-wjp",
+      "subnet_name": "arm-wjp-subnet",
+      "subnet_cidr": "10.11.0.0/24"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_1": {
+    "description": "Create gateway 1 for test",
+    "case_data": {
+      "01.cloud_type": "Azure ARM",
+      "02.account_name": "UCCARM",
+      "03.region": "Japan West",
+      "05.vnet_name": "arm-wjp",
+      "07.vpn_access": "deselect",
+      "06.gateway_name": "ejpgw1",
+      "gateway_size": "Standard_D2"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway "
+    }
+  },
+  "test_case_2": {
+    "description": "Create gateway 2 for test",
+    "case_data": {
+      "01.cloud_type": "Azure ARM",
+      "02.account_name": "UCCARM",
+      "03.region": "Japan East",
+      "05.vnet_name": "arm-ejp",
+      "07.vpn_access": "deselect",
+      "06.gateway_name": "ejpgw2",
+      "gateway_size": "Standard_D3"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway "
+    }
+  },
+  "test_case_5": {
+    "description": "Create gateway 5 for test",
+    "case_data": {
+      "01.cloud_type": "Azure ARM",
+      "02.account_name": "UCCARM",
+      "03.region": "Japan East",
+      "05.vnet_name": "arm-ejp",
+      "07.vpn_access": "deselect",
+      "06.gateway_name": "ejpgw5",
+      "gateway_size": "Standard_D12"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway "
+    }
+  },
+  "test_case_6": {
+    "description": "Create gateway 6 for test",
+    "case_data": {
+      "01.cloud_type": "Azure ARM",
+      "02.account_name": "UCCARM",
+      "03.region": "Japan East",
+      "05.vnet_name": "arm-ejp",
+      "07.vpn_access": "deselect",
+      "06.gateway_name": "ejpgw6",
+      "gateway_size": "Standard_D11_v2"
+    },
+    "expected_result": {
+      "toaster": "Successfully created Gateway "
+    }
+  }
+}

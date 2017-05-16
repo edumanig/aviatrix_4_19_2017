@@ -1,0 +1,142 @@
+{
+  "test_case_1": {
+    "description": "Add a route table",
+    "case_data": {
+      "cloud_type": "Azure",
+      "azure_classic_account_name": "auto-azure",
+      "add_route_table": "3 - Add a route table",
+      "new_route_table_name":"controller-n-eu-new",
+      "location":"North Europe"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_2": {
+    "description": "Add a route to a route table",
+    "case_data": {
+      "add_route" : "7 - Add a route in a route table",
+      "new_route_table_name":"controller-n-eu-new",
+      "route_name":"route-deletable",
+      "cidr":"192.168.2.0/24",
+      "next_hop_id":"0.0.0.0"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_3": {
+    "description": "Display all route table and save the result",
+    "case_data": {
+      "display_route" : "1 - Display all route tables"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_4": {
+    "description": "Display route table and detail",
+    "case_data": {
+      "route_table_details" : "1 - Display all route tables",
+      "new_route_table_name":"controller-n-eu-new"
+    },
+    "expected_result": {
+      "output":"\"Location\""
+    }
+  },
+  "test_case_5": {
+    "description": "List a subnet and route table",
+    "case_data": {
+      "list_route_subnet" : "5 - List route table and subnet tables",
+      "list_vnet_name" : "azneu"
+    },
+    "expected_result": {
+      "output":"\"AddressPrefix\""
+    }
+  },
+  "test_case_6": {
+    "description": "List a instance's effective route",
+    "case_data": {
+      "list_effective_route" : "6 - List effective route of an instance",
+      "instance_name" : "CN-34b2c76f"
+    },
+    "expected_result": {
+      "notinoutput":"\"Error\"",
+      "output":"\"EffectiveRoute\""
+    }
+  },
+  "test_case_7": {
+    "description": "Associating VNet/subnet to a route table",
+    "case_data": {
+      "associate_subnet" : "12 - Associate a subnet to a route table",
+      "new_route_table_name":"controller-n-eu-new",
+      "list_vnet_name" : "azneu",
+      "associate_vnet_subnet" : "Subnet-1"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_8": {
+    "description": "Dissociating VNet/subnet to a route table",
+    "case_data": {
+      "disociate_subnet" : "13 - Dissociate a subnet from a route table",
+      "new_route_table_name":"controller-n-eu-new",
+      "list_vnet_name" : "azneu",
+      "associate_vnet_subnet" : "Subnet-1"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_9": {
+    "description": "Turn IP fwd on",
+    "case_data": {
+      "turn_ip_on" : "9 - Turn IP fwd ON",
+      "instance_name" : "CN-34b2c76f"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_10": {
+    "description": "Get status of IP forward",
+    "case_data": {
+      "get_ip_fwd" : "11 - Get IP fwd",
+      "instance_name" : "CN-34b2c76f"
+    },
+    "expected_result": {
+      "toaster":"abled"
+    }
+  },
+  "test_case_11": {
+    "description": "Turn IP fwd off",
+    "case_data": {
+      "turn_ip_off" : "10 - Turn IP fwd OFF",
+      "instance_name" : "CN-34b2c76f"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_12": {
+    "description": "Delete a route of a route table",
+    "case_data": {
+      "delete_route" : "8 - Delete a route",
+      "new_route_table_name":"controller-n-eu-new",
+      "route_name":"route-deletable"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  },
+  "test_case_13": {
+    "description": "Delete a route table",
+    "case_data": {
+      "delete_route_table" : "4 - Delete a route table",
+      "new_route_table_name":"controller-n-eu-new"
+    },
+    "expected_result": {
+      "toaster":"Succeeded"
+    }
+  }
+}

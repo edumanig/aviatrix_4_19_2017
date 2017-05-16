@@ -1,0 +1,27 @@
+{
+  "test_case_1": {
+    "description": "Display Command log",
+    "case_data": {
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_2": {
+    "description": "Ping Utility : Ping google.com and record the ping result in logger and in a txt file",
+    "case_data": {
+      "host_name_to_ping" : "www.google.com"
+    },
+    "expected_result": {
+      "not_in_ping_text": "100% packet loss"
+    }
+  },
+  "test_case_3": {
+    "description": "Upload Tracelog for the gateway",
+    "case_data": {
+      "gateway_name" : "aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster": "upload successful"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "test_case_1": {
+    "description": "Create a gateway without VPN access",
+    "case_data": {
+      "cloud_type":"Azure ARM",
+      "azure_region":"West US",
+      "vnet_id":"arm-wus",
+      "gateway_name": "auto-wus-no-vpn",
+      "vpn_access":"deselect"
+    },
+    "expected_result": {
+      "status":"up"
+    }
+  },
+  "test_case_2": {
+    "description": "Create a gateway with VPN access enabled",
+    "case_data": {
+      "azure_region":"East US 2",
+      "vnet_id":"arm-eus2",
+      "gateway_name": "auto-eus2-vpn",
+      "vpn_access":"select",
+      "vpn_cidr":"192.168.0.0/20",
+      "enable_elb":"no",
+      "enable_client_cert_sharing":"no",
+      "enable_ldap":"deselect"
+    },
+    "expected_result": {
+      "status":"up"
+    }
+  },
+  "test_case_3": {
+    "description": "GW HA - Gateway without VPN access: HA is not supported for ARM",
+    "case_data": {
+      "gateway_name": "auto-wus-no-vpn"
+    },
+    "expected_result": {
+      "gateway_detail":"Gateway Name: ",
+      "toaster_enable": "HA is only supported in AWS"
+    }
+  },
+  "test_case_4": {
+    "description": "GW HA - Gateway without VPN access: resize the gateway",
+    "case_data": {
+      "resize":"Standard_D3"
+    },
+    "expected_result": {
+      "toaster_resize":"Successfully updated gateway size"
+    }
+  },
+  "test_case_5": {
+    "description": "Gateway with VPN access enabled: Not allowed to resize it",
+    "case_data": {
+      "gateway_name": "auto-eus2-vpn",
+      "resize" : "Standard_D3"
+    },
+    "expected_result": {
+      "toaster_resize":"resizing is not supported"
+    }
+  },
+  "test_case_6": {
+    "description": "Delete gateways",
+    "case_data": {
+      "gateway_name1": "auto-wus-no-vpn",
+      "gateway_name2": "auto-eus2-vpn"
+    },
+    "expected_result": {
+      "toaster": "has been deleted."
+    }
+  }
+}

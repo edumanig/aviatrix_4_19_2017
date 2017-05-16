@@ -1,0 +1,38 @@
+{
+  "set_up": {
+   "description":"Set up an AWS gateway with VPN access and elb enabled",
+   "case_data":{
+     "01.cloud_type": "AWS",
+     "02.account_name": "auto-aws",
+     "03.region": "us-east-1",
+     "07.vpn_access": "select",
+     "06.gateway_name": "auto-elb-status-test",
+     "08.enable_elb":"yes",
+     "10.enable_ldap":"deselect",
+     "enable_client_cert_sharing":"no",
+     "04.vpc_id": "vpc-1e163c79--auto-eus"
+   },
+   "expected_result":{
+     "toaster":"Successfully created Gateway ",
+     "status":"up"
+   }
+ },
+  "test_case_1": {
+   "description":"Select the VPC ID, get ELB info and delete it",
+   "case_data":{
+     "vpc_id": "vpc-1e163c79"
+   },
+   "expected_result":{
+     "toaster":"Success"
+   }
+ },
+  "tear_down": {
+   "description":"Delete the elb-enabled gateway after the test",
+   "case_data":{
+     "gateway_name": "auto-elb-status-test"
+   },
+   "expected_result":{
+     "toaster":"has been deleted."
+   }
+ }
+}

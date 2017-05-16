@@ -1,0 +1,100 @@
+{
+  "test_case_1":{
+    "description":"Upgrade to 121516; Disable Certificate;Downgrade to 112816",
+    "case_data":{
+      "custom_version":"preview",
+      "username":"admin",
+      "password":"password"
+    },
+    "expected_result":{
+      "custom_version":"121516",
+      "latest_version":"112816"
+    }
+  },
+  "test_case_2":{
+    "description":"Create 2 gateways for AWS, ARM and Gcloud",
+    "case_data":{
+      "gw1":{
+         "01.cloud_type": "AWS",
+         "02.account_name": "ucc-101",
+         "03.region": "us-east-1",
+         "04.vpc_id": "vpc-e465c183--testgroup2",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "aws-wing-1",
+         "gateway_size": "t2.micro"
+       },
+      "gw2":{
+         "01.cloud_type": "AWS",
+         "02.account_name": "ucc-101",
+         "03.region": "us-east-1",
+         "04.vpc_id": "vpc-e465c183--testgroup2",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "aws-wing-2",
+         "gateway_size": "t2.micro"
+       },
+      "gw3":{
+         "01.cloud_type": "Azure ARM",
+         "02.account_name": "UCCARM",
+         "03.region": "Central US",
+         "04.vpc_id": "arm-cus",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "arm-wing-1",
+         "gateway_size": "Standard_D2"
+       },
+      "gw4":{
+         "01.cloud_type": "Azure ARM",
+         "02.account_name": "UCCARM",
+         "03.region": "Central US",
+         "04.vpc_id": "arm-cus",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "arm-wing-2",
+         "gateway_size": "Standard_D2"
+       },
+      "gw5":{
+         "01.cloud_type": "Gcloud",
+         "02.account_name": "UCCGC",
+         "04.vpc_id": "gc-auto-1",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "gc-wing-1",
+         "gateway_size": "f1-micro"
+       },
+      "gw6":{
+         "01.cloud_type": "Gcloud",
+         "02.account_name": "UCCGC",
+         "04.vpc_id": "gc-auto-1",
+         "07.vpn_access": "deselect",
+         "06.gateway_name": "gc-wing-2",
+         "gateway_size": "f1-micro"
+       }
+    },
+    "expected_result":{
+      "status":"up"
+    }
+  },
+  "test_case_3":{
+    "description":"Upgrade to the custom release",
+    "case_data":{
+      "custom_version":"preview",
+      "username":"admin",
+      "password":"password",
+      "hostip":"52.24.28.208",
+      "ssh_user":"ubuntu",
+      "ssh_password":"Moon-river-wider-than-20miles.",
+      "key_filename":"testdata\\keys\\AWS\\4Testing.pem",
+      "gateway_names":[
+        "aws-wing-1",
+        "aws-wing-2",
+        "arm-wing-1",
+        "arm-wing-2",
+        "gc-wing-1",
+        "gc-wing-2"
+      ]
+    },
+    "expected_result":{
+      "custom_version":"121516",
+      "response":"insecurely, use `--no-check-certificate'",
+      "response_code":"200 OK",
+      "toaster":"deleted successfully"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "test_case_2": {
+    "description": "Run a diagnostic test with chosen gateway and make sure it is successful",
+    "case_data": {
+      "gateway_name" : "aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster":"Finished running diagnostic tests"
+    }
+  },
+  "test_case_3": {
+    "description": "Show the result in logger and save it as a txt file",
+    "case_data": {
+      "gateway_name" : "aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster":"Finished running diagnostic tests"
+    }
+  },
+  "test_case_4": {
+    "description": "Submit the diagnostics with the specified gateway and make sure it is successful",
+    "case_data": {
+      "gateway_name" : "aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster":"Diagnostics results submitted successfully"
+    }
+  },
+  "test_case_1": {
+    "description": "Fill the VPN username and run a test.Record the result in logger and save in txt file",
+    "case_data": {
+      "vpn_username" : "Jessie"
+    },
+    "expected_result": {
+    }
+  }
+}

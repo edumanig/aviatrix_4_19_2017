@@ -1,0 +1,60 @@
+{
+   "test_case_1": {
+     "description": "Enter correct Customer ID",
+     "case_data": {
+       "cloud_name":"AWS",
+       "customer_id":"samning-1466698941.03"
+     },
+     "expected_result": {
+       "toaster": "New customer ID is saved successfully."
+     }
+   },
+  "test_case_2": {
+    "description": "Create an account for AWS",
+    "case_data": {
+      "cloud_name":"AWS",
+      "account_name":"aviaws",
+      "email":"abc@12345.com",
+      "password":"Avtx123!",
+      "confirm_password":"Avtx123!",
+      "account_number":"",
+      "access_key":"",
+      "secret_key":""
+    },
+    "expected_result": {
+      "toaster":"An email with instructions has been sent to "
+    }
+  },
+  "test_case_3": {
+    "description": "Create an account for Azure RM",
+    "case_data": {
+      "cloud_name":"Azure ARM",
+      "account_name":"aviarm",
+      "email":"abc@23456.com",
+      "password":"Avtx123!",
+      "confirm_password":"Avtx123!",
+      "subscription_id":"",
+      "app_endpoint":"",
+      "client_id":"",
+      "client_secret":""
+    },
+    "expected_result": {
+      "toaster": "An email with instructions has been sent to "
+    }
+  },
+  "test_case_4": {
+    "description": "Create an account for Gcloud",
+    "case_data": {
+      "cloud_name":"Gcloud",
+      "account_name":"avigc",
+      "email":"abc@34567.com",
+      "password":"Avtx123!",
+      "confirm_password":"Avtx123!",
+      "project_id":"",
+      "project_credentials":""
+    },
+    "expected_result": {
+      "toaster": "An email with instructions has been sent to "
+    }
+  }
+}

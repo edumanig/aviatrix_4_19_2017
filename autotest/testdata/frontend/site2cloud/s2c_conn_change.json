@@ -1,0 +1,22 @@
+{
+  "test_case_1": {
+    "description": "Change Local Subnet of the Site2Cloud connection ",
+    "case_data": {
+      "conn_name": "ProdConn",
+      "customer_nw_real": "100.201.0.0/16"
+    },
+    "expected_result": {
+      "toaster": "successfully"
+    }
+  },
+  "test_case_2": {
+    "description": "Change Remote Subnet of the Site2Cloud connection",
+    "case_data": {
+      "conn_name": "ProdConn",
+      "cloud_sub_real": "100.211.0.0/16"
+    },
+    "expected_result": {
+      "toaster": "successfully"
+    }
+  }
+}

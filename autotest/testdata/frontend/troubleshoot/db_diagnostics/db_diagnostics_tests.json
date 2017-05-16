@@ -1,0 +1,51 @@
+{
+  "test_case_1": {
+    "description": "Delete Collection to delete collection but cancel the process",
+    "case_data": {
+      "database_name":"local",
+      "collection_name":"startup_log"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_2": {
+    "description": "Input to the document and tries to delete the document and cancel the process",
+    "case_data": {
+      "diagnostic_input_document":"key:value"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_3": {
+    "description": "start the Drop Database process and cancel the process",
+    "case_data": {
+      "database_name":"local"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_4": {
+    "description": "choose the Collection Name and continue the Dump Collection process. Then record the Dump Collection in a txt file and in logger",
+    "case_data": {
+      "database_name":"local",
+      "collection_name":"startup_log"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_5": {
+    "description": "Input in the Document and press the Dump Document button Check if there is an error",
+    "case_data": {
+      "diagnostic_input_document":"key:value"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_6": {
+    "description": "Click restart the server and cancel the process",
+    "case_data": {
+    },
+    "expected_result": {
+    }
+  }
+}

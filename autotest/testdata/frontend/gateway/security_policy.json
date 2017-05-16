@@ -1,0 +1,78 @@
+{
+  "test_case_1": {
+    "description": "Leave the fields of security policy all empty",
+    "case_data": {
+      "gateway_name": "aws-wus1-vpn-1"
+    },
+    "expected_result": {
+      "toaster": "Error: source is empty."
+    }
+  },
+  "test_case_2": {
+    "description": "Leave Destination empty",
+    "case_data": {
+      "source": "192.168.0.6"
+    },
+    "expected_result": {
+      "toaster": "Error: destination is empty."
+    }
+  },
+  "test_case_3": {
+    "description": "Leave Port Range empty",
+    "case_data": {
+      "source": "192.168.0.6",
+      "destination": "www.yahoo.com",
+      "protocol":"TCP"
+    },
+    "expected_result": {
+      "toaster": "Error: port range is empty."
+    }
+  },
+  "test_case_4": {
+    "description": "Create a security policy",
+    "case_data": {
+      "source": "192.168.0.6",
+      "destination": "www.yahoo.com",
+      "protocol":"All",
+      "action": "Deny",
+      "logging": "on"
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_5": {
+    "description": "Click inline Add New, fill the fields; Click inline Add New again and then Cancel",
+    "case_data": {
+      "destination": "www.yahoo.com",
+      "new_policy":{
+        "source": "192.168.0.6",
+        "destination": "10.31.0.0/16",
+        "protocol":"TCP",
+        "protocol_port": "80",
+        "action": "Deny",
+        "logging": "on"
+      }
+    },
+    "expected_result": {
+    }
+  },
+  "test_case_6": {
+    "description": "Click Save button to deploy the policy",
+    "case_data": {
+      "gateway_name": "aws-wus1-vpn-1",
+      "destination": "www.yahoo.com"
+    },
+    "expected_result": {
+      "toaster": "Security policy rules have been updated..."
+    }
+  },
+  "test_case_7": {
+    "description": "Delete the saved policies",
+    "case_data": {
+      "destination1": "www.yahoo.com",
+      "destination2": "10.31.0.0/16"
+    },
+    "expected_result": {
+    }
+  }
+}
